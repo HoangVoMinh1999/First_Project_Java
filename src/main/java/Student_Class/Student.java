@@ -14,7 +14,7 @@ public class Student {
     public static String school = "HCMUS";
     
     private String name;
-    private String id;
+    private int id;
     private String address;
     private int age;
     private float gpa;
@@ -22,7 +22,7 @@ public class Student {
     public Student(){
     }
     
-    public Student(String name, String id, String address, int age, float gpa){
+    public Student(String name, int id, String address, int age, float gpa){
         this.name=name;
         this.address=address;
         this.age=age;
@@ -59,10 +59,10 @@ public class Student {
         this.gpa=gpa;
     }
     //---ID
-    public String getID(){
+    public int getID(){
         return this.id;
     }
-    public void setID(String id){
+    public void setID(int id){
         this.id=id;
     }
 }
