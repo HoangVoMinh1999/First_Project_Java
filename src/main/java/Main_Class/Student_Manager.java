@@ -16,17 +16,17 @@ import java.util.Scanner;
  *
  * @author vomin
  */
-public class MainClass {
+public class Student_Manager {
 
     public static Scanner scanner = new Scanner(System.in);
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         //---Variable
         StudentManager studentManager = new StudentManager();
         boolean isExisted = false;
         int id; //---ID cua sinh vien
         //---Main Function
-        while (isExisted) {
+        while (!isExisted) {
             showMenu();
             int choice = scanner.nextInt();
             switch (choice) {

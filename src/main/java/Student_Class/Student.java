@@ -4,12 +4,12 @@
  * and open the template in the editor.
  */
 package Student_Class;
-
+import java.io.Serializable;
 /**
  *
  * @author vomin
  */
-public class Student {
+public class Student implements Serializable {
     
     public static String school = "HCMUS";
     
