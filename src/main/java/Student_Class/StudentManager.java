@@ -5,7 +5,7 @@
  */
 package Student_Class;
 
-import java.util.Collection; //---Ho tro xu ly Collection
+import java.util.Collections; //---Ho tro xu ly Collection
 import java.util.List;
 import java.util.Scanner; //---Ho tro nhap gia tri tu ban phim
 
@@ -22,8 +22,8 @@ public class StudentManager {
     //---Constructor
 
     public StudentManager() {
-        studentFile = new StudentFile();
-        List_Students = studentFile.readDataFromFile();
+        studentFile = new StudentFile(); //---Doc file
+        List_Students = studentFile.readDataFromFile(); //---Luu du lieu vao List_Students
     }
 
     //---Function
@@ -74,5 +74,43 @@ public class StudentManager {
         else{
             studentFile.WriteDataToFile(List_Students);
         }
+    }
+    
+    public void delete(int id){
+        boolean isExisted=false;
+        for (int i =0 ;i < List_Students.size();i++){
+            if (List_Students.get(i).getID()==id){
+                isExisted = true;
+                List_Students.remove(id);
+                break;  
+            }
+        }
+        if (!isExisted){
+            System.out.println(id+" is not existed !");
+        }
+        else{
+            studentFile.WriteDataToFile(List_Students);
+            System.out.println("Delete successfully !!!");
+        }
+    }
+    
+    public void showStudents(){
+        System.out.println("Sinh vien truong: "+Student.school);
+        for ( Student i : List_Students){
+            System.out.println("----------------");
+            System.out.println("ID: "+i.getID());
+            System.out.println("Ten sinh vien: "+i.getName());
+            System.out.println("Tuoi: "+i.getAge());
+            System.out.println("Dia chi: "+i.getAddress());
+            System.out.println("GPA: "+i.getGPA());
+        }
+    }
+    
+    public void sortByGPA(){
+        Collections.sort(List_Students, new SortByGPA());
+    }
+    
+    public void sortByName(){
+        Collections.sort(List_Students, new SortByName());
     }
 }

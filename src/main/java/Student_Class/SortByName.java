@@ -5,20 +5,16 @@
  */
 package Student_Class;
 
-import java.util.Comparator;
-
 /**
  *
  * @author vomin
  */
 import java.util.Comparator;
- //---Override for List_Students
-public class SortByGPA implements Comparator<Student> {
+
+public class SortByName implements Comparator<Student> {
+
     @Override
     public int compare(Student student1, Student student2) {
-        if (student1.getGPA() > student2.getGPA()) {
-            return 1;
-        }
-        return -1;
+        return student1.getName().compareTo(student2.getName());
     }
 }
